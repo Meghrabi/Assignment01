@@ -1,7 +1,5 @@
-package com.company;
+package Assignment01;
 import java.io.*;
-import java.util.*;
-
 
 public class Assignment01 {
 
@@ -46,79 +44,52 @@ public class Assignment01 {
         return (head1 == null && head2 == null);
     }
 
-    //private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
 
-        FileWriter filewriter = new FileWriter( "Output.txt");
+        FileWriter filewriter = new FileWriter( "Resultat01.txt");
 
         // Creates a BufferedWriter
         BufferedWriter bufferedWriter = new BufferedWriter(filewriter);
 
         FileReader filereader = new FileReader("Assignment01-1.txt");
-        BufferedReader buffer = new BufferedReader(filereader);
+        BufferedReader bufferedReader = new BufferedReader(filereader);
 
-         String tests;
-        while(  (tests = buffer.readLine()) != null) {
-
-
-            for (int testsItr = 0; testsItr < Integer.parseInt(tests); testsItr++) {
+        String test_case;
+        while(  (test_case = bufferedReader.readLine()) != null) {
+            //  t  the number of test cases.
+            for (int t = 0; t < Integer.parseInt(test_case); t++) {
                 SinglyLinkedList llist1 = new SinglyLinkedList();
 
-                // int llist1Count = scanner.nextInt();
-                int llist1Count = Integer.parseInt (buffer.readLine());
-                System.out.println(llist1Count);
-               // scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+                // n  number of nodes in the first linked list.
+                int n = Integer.parseInt (bufferedReader.readLine());
 
-                for (int i = 0; i < llist1Count; i++) {
+                for (int i = 0; i < n; i++) {
 
-                    int llist1Item =  Integer.parseInt (buffer.readLine());            //scanner.nextInt();
-                //    scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+                    int llist1Item =  Integer.parseInt (bufferedReader.readLine());
 
                     llist1.insertNode(llist1Item);
                 }
 
                 SinglyLinkedList llist2 = new SinglyLinkedList();
 
-                int llist2Count =  Integer.parseInt (buffer.readLine());  //scanner.nextInt();
-              //  scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-                System.out.println(llist2Count);
-                for (int i = 0; i < llist2Count; i++) {
-                    int llist2Item = Integer.parseInt (buffer.readLine()); // scanner.nextInt();
-                   // scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+                 // m  number of nodes in the first linked list.
+                int m =  Integer.parseInt (bufferedReader.readLine());  //scanner.nextInt();
 
-                    llist2.insertNode(llist2Item);
+                for (int i = 0; i < m; i++) {
+                    int list2Item = Integer.parseInt (bufferedReader.readLine());
+                    llist2.insertNode(list2Item);
                 }
 
-
-
                 boolean result = compare_lists(llist1.head, llist2.head);
-                System.out.println(String.valueOf(result ? 1 : 0));
+                System.out.println("The case n° "+(t+1)  +"  linked lists are = "+ String.valueOf(result ? 1 : 0));
                 bufferedWriter.write(String.valueOf(result ? 1 : 0));
-
-                // bufferedWriter.write(String.valueOf(result ? 1 : 0));
                 bufferedWriter.newLine();
-
             }
-
-
-
 
         }
 
-
-
-
-
-    // BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUT_PATH")));
-
-        //int tests = scanner.nextInt();
-
-       // scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-       buffer.close();
+        bufferedReader.close();
         bufferedWriter.close();
-
-      //  scanner.close();
     }
 }
