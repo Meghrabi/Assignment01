@@ -35,7 +35,6 @@ public class Assignment01 {
         }
     }
 
-
     static boolean compare_lists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
         while((head1!=null && head2!=null) && head1.data == head2.data){
             head1 = head1.next;
@@ -62,11 +61,11 @@ public class Assignment01 {
                 SinglyLinkedList llist1 = new SinglyLinkedList();
 
                 // n  number of nodes in the first linked list.
-                int n = Integer.parseInt (bufferedReader.readLine());
+                int n = Integer.parseInt (bufferedReader.readLine().trim());
 
                 for (int i = 0; i < n; i++) {
 
-                    int llist1Item =  Integer.parseInt (bufferedReader.readLine());
+                    int llist1Item =  Integer.parseInt (bufferedReader.readLine().trim());
 
                     llist1.insertNode(llist1Item);
                 }
@@ -74,10 +73,10 @@ public class Assignment01 {
                 SinglyLinkedList llist2 = new SinglyLinkedList();
 
                  // m  number of nodes in the first linked list.
-                int m =  Integer.parseInt (bufferedReader.readLine());  //scanner.nextInt();
+                int m =  Integer.parseInt (bufferedReader.readLine().trim());  //scanner.nextInt();
 
                 for (int i = 0; i < m; i++) {
-                    int list2Item = Integer.parseInt (bufferedReader.readLine());
+                    int list2Item = Integer.parseInt (bufferedReader.readLine().trim());
                     llist2.insertNode(list2Item);
                 }
 
